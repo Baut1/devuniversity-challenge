@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import './globals.scss';
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <nav>
-          <a href="/dashboard">Dashboard</a>
-          <a href="/login">Login</a>
-        </nav>
-        {children}
+        <UserProvider>
+          <nav>
+            <Link href="/">Home</Link>
+            <Link href="/dashboard">Dashboard</Link>
+            <Link href="/api/auth/login?returnTo=/dashboard">Login</Link>
+            <Link href="/api/auth/logout?returnTo=/">Logout</Link>
+          </nav>
+          <main>{children}</main>
+        </UserProvider>
       </body>
     </html>
   );
