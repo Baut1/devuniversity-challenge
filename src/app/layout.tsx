@@ -32,7 +32,7 @@ export default function RootLayout({
             <Link href="/">Home</Link>
             <Link href="/dashboard">Dashboard</Link>
             <Link href="/api/auth/login?returnTo=/dashboard">Login</Link>
-            <Link href="/api/auth/logout?returnTo=/">Logout</Link>
+            <a href="/api/auth/logout?returnTo=/">Logout</a>
           </nav>
           <main>{children}</main>
         </UserProvider>
