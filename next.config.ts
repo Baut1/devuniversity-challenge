@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
     AUTH0_POST_LOGOUT_REDIRECT_URI: process.env.AUTH0_POST_LOGOUT_REDIRECT_URI,
     AUTH0_SCOPE: process.env.AUTH0_SCOPE,
     AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+        port: '',
+        pathname: '/**',
+      }
+    ]
   }
 };
 

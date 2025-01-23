@@ -39,6 +39,14 @@ export default function Home() {
         <li>Write unit tests for components with Jest and React Testing Library.</li>
         <li>Deploy the application on Vercel.</li>
       </ul>
+
+      <Image
+        src="https://i.ibb.co/1sL1dQ4/task-list-example.png"
+        alt="task-list-example"
+        width={649}
+        height={396}
+        >
+      </Image>
       
       <div className={styles.bonus}>
         <h3>Bonus Points</h3>
