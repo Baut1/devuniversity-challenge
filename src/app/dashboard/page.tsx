@@ -10,6 +10,7 @@ export default function DashboardPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
+    // fetch tasks
     const fetchTasks = async () => {
       try {
         // Fetch access token
@@ -41,15 +42,44 @@ export default function DashboardPage() {
     fetchTasks();
   }, []);
 
+  // add task handler
   const handleAddTask = (newTask: Task) => {
     setTasks((prevTasks) => [...prevTasks, newTask]); // Update task list
+  };
+
+  // para eliminar una tarea
+  // TODO: reorganizar las llamadas a la API
+  const handleDeleteTask = async (id: string) => {
+    try {
+      const tokenResponse = await fetch('/api/token');
+      if (!tokenResponse.ok) {
+        throw new Error('Failed to fetch access token');
+      }
+
+      const { accessToken } = await tokenResponse.json();
+
+      if (accessToken) {
+        await api.delete(`/tasks/${id}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        // Actualizar el estado después de eliminar
+        setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+      } else {
+        console.error('Access token not found');
+      }
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
 
   return (
     <div>
       <h1>Dashboard</h1>
       <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
-      <TaskList tasks={tasks}></TaskList> 
+      <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
     </div>
   );
 }
