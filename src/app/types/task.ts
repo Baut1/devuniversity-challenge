@@ -7,6 +7,7 @@ export interface Task {
 
 export interface TaskListProps {
   tasks: Task[];
+  onDelete: (id: string) => void;
 }
 
 export interface AddTaskProps {
