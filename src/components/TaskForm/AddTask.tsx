@@ -7,20 +7,19 @@ import styles from './AddTask.module.scss';
 
 const AddTask: React.FC<AddTaskProps> = ({ onAdd }) => {
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
     const [error, setError] = useState('');
   
     // Function to handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
   
-      // Verificación básica para asegurarse de que el título y la descripción no estén vacíos
-      if (!title || !description) {
-        setError('Both title and description are required');
+      // check if title aint empty
+      if (!title) {
+        setError('Title is required');
         return;
       }
   
-      const newTask = { title, description, completed: false };
+      const newTask = { title, completed: false };
   
       try {
         // Fetch access token
@@ -42,7 +41,6 @@ const AddTask: React.FC<AddTaskProps> = ({ onAdd }) => {
           // Update the task list with the new task
           onAdd(response.data);
           setTitle('');
-          setDescription('');
           setError('');
         } else {
           setError('Access token not found');
@@ -62,12 +60,6 @@ const AddTask: React.FC<AddTaskProps> = ({ onAdd }) => {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
             required
           />
           <button type="submit">Add</button>

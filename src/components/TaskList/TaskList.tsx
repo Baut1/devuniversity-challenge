@@ -15,7 +15,7 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onDelete}) => {
                         value={task._id}
                         defaultChecked={task.completed}/>
                     <label htmlFor={task._id}>
-                        {task.title}: {task.description} - {task.completed.toString()}
+                        {task.title}: {task.completed ? "Completed" : "Pending"}
                     </label>
                     <button onClick={() => onDelete(task._id)}>Delete</button> {/* Botón Delete */}
                 </li>
