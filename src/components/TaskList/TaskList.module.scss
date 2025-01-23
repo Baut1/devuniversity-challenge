@@ -1,0 +1,45 @@
+.dashboard {
+    padding: 1rem;
+    max-width: 900px;
+    margin: auto;
+}
+  
+.taskList {
+    margin-top: 2rem;
+  
+    .taskItem {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+
+      label {
+        margin-left: 0.5rem;
+      }
+  
+      button {
+        margin-right: 0.5rem;
+        cursor: pointer;
+      }
+    }
+}
+  
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  
+    input, textarea {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  
+    button {
+      padding: 0.5rem;
+      background-color: #0070f3;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+}
+  
