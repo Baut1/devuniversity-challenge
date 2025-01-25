@@ -76,11 +76,23 @@ export default function DashboardPage() {
     }
   };
 
+  // handle state of an updated task
+  const handleUpdateTask = (updatedTask: Task) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task._id === updatedTask._id ? updatedTask : task
+      )
+    );
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
-        <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
+        <TaskList
+          tasks={tasks}
+          onDelete={handleDeleteTask}
+          onUpdate={handleUpdateTask}></TaskList>
       </div>
     </div>
   );
