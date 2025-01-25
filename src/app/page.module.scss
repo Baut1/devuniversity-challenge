@@ -1,14 +1,10 @@
 .container {
-    max-width: 800px;
+    max-width: var(--max-width-lg);
     margin: 2rem auto;
     padding: 1rem;
     border-radius: 8px;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-  
-    h1, h2, h3 {
-      color: var(--primary-color);
-    }
   
     ul {
       margin: 1rem 0;
@@ -18,11 +14,15 @@
         margin-bottom: 0.5rem;
       }
     }
+    
+    p {
+      font-size: var(--font-size-sm);
+    }
   
     .bonus, .submission {
       margin-top: 2rem;
       padding: 1rem;
-      border-left: 4px solid var(--secondary-color);
+      border-left: 4px solid var(--primary-color);
   
       h3 {
         margin-top: 0;

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import styles from "./Navbar.module.scss";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export default function Navbar() {
   const { user } = useUser();
@@ -16,6 +17,7 @@ export default function Navbar() {
         <Link href="/">Home</Link>
         <Link href="/dashboard">Dashboard</Link>
       </div>
+      <ThemeToggle />
       <div className={styles["login-logout"]}>
         {!user ? (
           <Link href="/api/auth/login">Login</Link>
