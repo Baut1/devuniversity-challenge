@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+    
+    .card {
+        background-color: var(--card-background-color);
+        width: var(--max-width-lg);
+        border-radius: var(--border-radius-md);
+        border: var(--border-width-thin) solid var(--primary-color);
+        margin-top: var(--spacing-xxl);
+      }
+}

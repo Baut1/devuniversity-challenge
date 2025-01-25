@@ -5,6 +5,7 @@ import api from '../lib/api';
 import { Task } from '../types/task'; // Import Task type
 import TaskList from '@/components/TaskList/TaskList';
 import AddTask from '@/components/TaskForm/AddTask';
+import styles from './page.module.scss';
 
 export default function DashboardPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -47,7 +48,7 @@ export default function DashboardPage() {
     setTasks((prevTasks) => [...prevTasks, newTask]); // Update task list
   };
 
-  // para eliminar una tarea
+  // delete task handler
   // TODO: reorganizar las llamadas a la API
   const handleDeleteTask = async (id: string) => {
     try {
@@ -65,7 +66,7 @@ export default function DashboardPage() {
           },
         });
 
-        // Actualizar el estado después de eliminar
+        // refresh state after deleting
         setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
       } else {
         console.error('Access token not found');
@@ -76,10 +77,11 @@ export default function DashboardPage() {
   };
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
-      <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
+        <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
+      </div>
     </div>
   );
 }
