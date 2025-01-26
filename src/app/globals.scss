@@ -13,12 +13,31 @@
     --secondary-color: #b1f0db;
     --tertiary-color: #f47d10;
     --danger-color: #c70366;
+    --danger-hover-color: #b20161;
 
     // card color
-    --card-background-color: #ffffff;
+    --card-background-color: var(--background-color);
+
+    // list item background color
+    --list-item-background-color: #bdc5f5;
 
     // buttons color
     --button-text-color: #e5e7ff;
+
+    // gradient colors
+    --gradient-color-1: #cb377c;
+    --gradient-color-2: #db5475;
+    --gradient-color-3: #e67074;
+    --gradient-color-4: #ed8b78;
+    --gradient-color-5: #f1a684;
+    --gradient-color-6: #f6aa93;
+    --gradient-color-7: #faafa3;
+    --gradient-color-8: #fcb5b1;
+    --gradient-color-9: #f0aec5;
+    --gradient-color-10: #d5add7;
+    --gradient-color-11: #b1afdf;
+    --gradient-color-12: #89b1db;
+    
 
     // font families
     --font-family: 'Roboto', sans-serif;
@@ -33,14 +52,14 @@
     --font-size-xxl: calc(#{$base-font-size} * 2);    // 32px
 
     // spacing
-    $spacing-unit: 8px; // unit for spacing
+    $spacing-unit: 6px; // unit for spacing
     --spacing-xxs: calc(#{$spacing-unit} * 0.25); // 2px
     --spacing-xs: calc(#{$spacing-unit} * 0.5);   // 4px
     --spacing-sm: calc(#{$spacing-unit});         // 8px
     --spacing-md: calc(#{$spacing-unit} * 2);     // 16px
     --spacing-lg: calc(#{$spacing-unit} * 3);     // 24px
-    --spacing-xl: calc(#{$spacing-unit} * 4);     // 32px
-    --spacing-xxl: calc(#{$spacing-unit} * 5);    // 40px
+    --spacing-xl: calc(#{$spacing-unit} * 6);     // 32px
+    --spacing-xxl: calc(#{$spacing-unit} * 10);    // 40px
 
     // max-widths
     --max-width-xs: 400px;
@@ -64,6 +83,18 @@
     --shadow-sm: 4px 4px 2px rgba(0, 0, 0, 0.15);
     --shadow-md: 6px 6px 6px rgba(0, 0, 0, 0.2);
     --shadow-lg: 10px 10px 15px rgba(0, 0, 0, 0.25);
+
+    .primary-button {
+        background-color: var(--primary-color);
+        color: var(--button-text-color);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        transition: all 0.3s;
+      
+        &:hover {
+          background-color: var(--primary-hover-color);
+        }
+      }
 }
 
 html,
@@ -83,6 +114,8 @@ body {
 
 // Dark Theme Variables
 body.dark-theme {
+    // colors
+    // background color
     --background-color: #1f2223;
     --alternative-background-color: #000000;
 
@@ -96,13 +129,31 @@ body.dark-theme {
     --secondary-color: #F5C79E;
     --tertiary-color: #f47d10;
     
-    --danger-color: #cb377c;
+    --danger-color: #ec6b7d;
+    --danger-hover-color: #f9415c;
 
     // card color
-    --card-background-color: #000000;
+    --card-background-color: var(--background-color);
+
+    // list item background color
+    --list-item-background-color: #404344;
 
     // buttons color
     --button-text-color: #1f2223;
+
+    // gradient colors
+    --gradient-color-1: #b1f0db;
+    --gradient-color-2: #aff0eb;
+    --gradient-color-3: #b6eff7;
+    --gradient-color-4: #c2ecfe;
+    --gradient-color-5: #d1eaff;
+    --gradient-color-6: #c4deff;
+    --gradient-color-7: #bfd1ff;
+    --gradient-color-8: #c1c2ff;
+    --gradient-color-9: #a9a6ff;
+    --gradient-color-10: #9488ff;
+    --gradient-color-11: #8368ff;
+    --gradient-color-12: #7543ff;
 }
 
 * {
@@ -115,6 +166,18 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s;
+  
+    &:hover {
+      background-color: var(--primary-hover-color);
+    }
+  }
 
 @media (prefers-color-scheme: dark) {
     html {

@@ -34,7 +34,7 @@ const AddTask: React.FC<AddTaskProps> = ({ onAdd }) => {
           {error && <p className={styles.error}>{error}</p>}
           <input
             type="text"
-            placeholder="Title"
+            placeholder="New task..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
