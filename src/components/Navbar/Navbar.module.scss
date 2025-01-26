@@ -15,10 +15,8 @@
       gap: 1rem;
   
       a {
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        font-weight: 500;
+        border-radius: var(--border-radius-md);
+        padding: var(--spacing-sm) var(--spacing-md);
         transition: all 0.3s;
   
         &:hover {
@@ -29,14 +27,14 @@
   
     .login-logout {
       a {
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        font-weight: bold;
+        background-color: var(--primary-color);
+        color: var(--button-text-color);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-md);
         transition: all 0.3s;
   
         &:hover {
-          background-color: #ffe0e6;
-          color: #ff758c;
+          background-color: var(--primary-hover-color);
         }
       }
     }

@@ -1,59 +1,63 @@
-.dashboard {
-    padding: 1rem;
-    max-width: 900px;
-    margin: auto;
-}
-  
-.taskList {
-    margin-top: 2rem;
-  
-    .taskItem {
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+.task-list {
+  margin: 0 var(--spacing-xl);
 
-      label {
-        margin-left: 0.5rem;
-      }
-  
-      button {
-        margin-left: 0.5rem;
-        padding: 0.8rem;
-        background-color: var(--danger-color);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
+  ul {
+    list-style-type: none;
+  }
 
-        &:hover {
-          background-color: var(--secondary-color);
-        }
-    
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-}
-  
-.form {
+  .task-item {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--list-item-background-color);
+    border-radius: 8px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+
     input {
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      width: var(--spacing-lg);
+      height: var(--spacing-lg);
     }
-  
-    button {
-      padding: 0.5rem;
-      background-color: #0070f3;
+
+    label {
+      margin-left: 0.5rem;
+    }
+
+    .edit-button {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background-color: var(--primary-color);
+      color: var(--button-text-color);
       border: none;
-      border-radius: 5px;
+      border-radius: var(--border-radius-md);
       cursor: pointer;
-    }
-}
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: var(--primary-hover-color);
+      }
   
+      &:focus {
+        outline: none;
+      }
+    }    
+
+    .delete-button {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background-color: var(--danger-color);
+      color: var(--button-text-color);
+      border: none;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-left: var(--spacing-sm);
+
+      &:hover {
+        background-color: var(--danger-hover-color);
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }    
+  }
+}

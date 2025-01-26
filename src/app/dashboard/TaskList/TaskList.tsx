@@ -2,6 +2,7 @@ import React from 'react';
 import { TaskListProps } from '../../types/task'; // Import Task type
 import { updateTaskStatus } from '../../lib/apiHelpers';
 import styles from './TaskList.module.scss';
+import Link from 'next/link';
 
 const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
   const handleStatusChange = async (taskId: string, completed: boolean) => {
@@ -14,10 +15,11 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
   };
     
     return(
-        <div className={styles.taskList}>
+        <div className={styles["task-list"]}>
             <ul>
                 {tasks.map((task) => (
-                <li key={task._id} className={styles.taskItem}>
+                <li key={task._id} className={styles["task-item"]}>
+                  <div>
                     <input
                         type="checkbox"
                         id={task._id}
@@ -27,9 +29,17 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
                         onChange={(e) => handleStatusChange(task._id, e.target.checked)} // call to handleStatusChange
                         />
                     <label htmlFor={task._id}>
-                        {task.title}: {task.completed ? "Completed" : "Pending"}
+                        {task.title}
                     </label>
-                    <button onClick={() => onDelete(task._id)}>Delete</button>
+                  </div>
+                  <div>
+                    <Link href={`/dashboard/${task._id}`}>
+                      <button className={styles["edit-button"]}>Edit</button>
+                    </Link>
+                    <button onClick={() => onDelete(task._id)} className={styles["delete-button"]}>
+                      Delete
+                    </button>
+                  </div>
                 </li>
                 ))}
             </ul>
