@@ -1,46 +1,26 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import api from '../lib/api';
+import { fetchTasks, deleteTask } from '../lib/apiHelpers';
 import { Task } from '../types/task'; // Import Task type
-import TaskList from '@/components/TaskList/TaskList';
-import AddTask from '@/components/TaskForm/AddTask';
+import TaskList from './TaskList/TaskList';
+import AddTask from './TaskForm/AddTask';
 import styles from './page.module.scss';
 
 export default function DashboardPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  // load tasks on component mount
   useEffect(() => {
-    // fetch tasks
-    const fetchTasks = async () => {
+    const loadTasks = async () => {
       try {
-        // Fetch access token
-        const tokenResponse = await fetch('/api/token');
-        if (!tokenResponse.ok) {
-          throw new Error('Failed to fetch access token');
-        }
-  
-        // save access token
-        const { accessToken } = await tokenResponse.json();
-  
-        // Fetch tasks
-        if (accessToken) {
-          const tasksResponse = await api.get<Task[]>('/tasks', {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
-          setTasks(tasksResponse.data);
-                    
-        } else {
-          console.error('Access token not found');
-        }
+        const data = await fetchTasks();
+        setTasks(data);
       } catch (error) {
         console.error('Error fetching tasks:', error);
       }
     };
-  
-    fetchTasks();
+    loadTasks();
   }, []);
 
   // add task handler
@@ -52,25 +32,8 @@ export default function DashboardPage() {
   // TODO: reorganizar las llamadas a la API
   const handleDeleteTask = async (id: string) => {
     try {
-      const tokenResponse = await fetch('/api/token');
-      if (!tokenResponse.ok) {
-        throw new Error('Failed to fetch access token');
-      }
-
-      const { accessToken } = await tokenResponse.json();
-
-      if (accessToken) {
-        await api.delete(`/tasks/${id}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-
-        // refresh state after deleting
-        setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
-      } else {
-        console.error('Access token not found');
-      }
+      await deleteTask(id);
+      setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
       console.error('Error deleting task:', error);
     }
