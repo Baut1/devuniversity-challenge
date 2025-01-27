@@ -41,11 +41,7 @@ export default function DashboardPage() {
 
   // handle state of an updated task
   const handleUpdateTask = (updatedTask: Task) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task._id === updatedTask._id ? updatedTask : task
-      )
-    );
+    setTasks(tasks.map((task) => (task._id === updatedTask._id ? updatedTask : task))); // Actualiza el estado
   };
 
   return (

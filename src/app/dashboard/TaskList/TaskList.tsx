@@ -1,13 +1,13 @@
 import React from 'react';
 import { TaskListProps } from '../../types/task'; // Import Task type
-import { updateTaskStatus } from '../../lib/apiHelpers';
+import { updateTask } from '../../lib/apiHelpers';
 import styles from './TaskList.module.scss';
 import Link from 'next/link';
 
 const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
   const handleStatusChange = async (taskId: string, completed: boolean) => {
     try {
-      const updatedTask = await updateTaskStatus(taskId, completed);
+      const updatedTask = await updateTask(taskId, { completed });
       onUpdate(updatedTask);      
     } catch (error) {
       console.error('Error updating task status:', error);
@@ -17,7 +17,7 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
     return(
         <div className={styles["task-list"]}>
             <ul>
-                {tasks.map((task) => (
+                {tasks.slice().reverse().map((task) => (
                 <li key={task._id} className={styles["task-item"]}>
                   <div>
                     <input
