@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { fetchTasks, deleteTask } from '../lib/apiHelpers';
 import { Task } from '../types/task'; // Import Task type
-import TaskList from './TaskList/TaskList';
-import AddTask from './TaskForm/AddTask';
 import styles from './page.module.scss';
+const TaskList = React.lazy(() => import('./TaskList/TaskList')); // Lazy load TaskList component
+const AddTask = React.lazy(() => import('./TaskForm/AddTask')); // Lazy load AddTask component
 
 export default function DashboardPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -29,7 +29,6 @@ export default function DashboardPage() {
   };
 
   // delete task handler
-  // TODO: reorganizar las llamadas a la API
   const handleDeleteTask = async (id: string) => {
     try {
       await deleteTask(id);
@@ -47,11 +46,15 @@ export default function DashboardPage() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
-        <TaskList
-          tasks={tasks}
-          onDelete={handleDeleteTask}
-          onUpdate={handleUpdateTask}></TaskList>
+        <Suspense fallback={<div>Loading Task Form...</div>}>
+          <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
+        </Suspense>
+        <Suspense fallback={<div>Loading Task List...</div>}>
+          <TaskList
+            tasks={tasks}
+            onDelete={handleDeleteTask}
+            onUpdate={handleUpdateTask}></TaskList>
+        </Suspense>
       </div>
     </div>
   );
