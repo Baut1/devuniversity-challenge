@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { UserProvider } from '@auth0/nextjs-auth0/client';
+import React, { Suspense } from 'react';
 import './globals.scss';
-import Navbar from "@/components/Navbar/Navbar";
+const Navbar = React.lazy(() => import('@/components/Navbar/Navbar')); // lazy load nav
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <UserProvider>
-          <header><Navbar /></header>
+          <header>
+            <Suspense fallback={<div>Loading Navbar...</div>}>
+              <Navbar />
+            </Suspense>
+          </header>
           <main>{children}</main>
         </UserProvider>
       </body>
