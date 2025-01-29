@@ -1,0 +1,48 @@
+.addTask {
+    border-radius: 8px;
+    margin: var(--spacing-xl) var(--spacing-xl);
+}
+  
+.form {
+    display: flex;
+    gap: 1rem;
+  
+    input {
+      background-color: var(--card-background-color);
+      color: var(--text-color);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius-md);
+      border: var(--border-width-thin) solid var(--text-color);
+      width: 100%;
+    }
+  
+    input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+  
+    button {
+      background-color: var(--primary-color);
+      color: var(--button-text-color);
+      padding: var(--spacing-md) var(--spacing-xl);
+      border-radius: var(--border-radius-md);
+      transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        background-color: var(--primary-hover-color);
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  

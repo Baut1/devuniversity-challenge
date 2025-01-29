@@ -1,0 +1,16 @@
+.button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: var(--border-width-thin) solid var(--primary-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: var(--primary-hover-color);
+        border: var(--border-width-thin) solid var(--primary-hover-color);
+        color: var(--background-color);
+    }
+  }
+
