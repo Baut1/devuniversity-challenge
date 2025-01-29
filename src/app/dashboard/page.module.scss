@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--gradient-color-1),
+    var(--gradient-color-2),
+    var(--gradient-color-3),
+    var(--gradient-color-4),
+    var(--gradient-color-5),
+    var(--gradient-color-6),
+    var(--gradient-color-7),
+    var(--gradient-color-8),
+    var(--gradient-color-9),
+    var(--gradient-color-10),
+    var(--gradient-color-11),
+    var(--gradient-color-12)
+  );
+    
+  .card {
+      background-color: var(--card-background-color);
+      width: var(--max-width-lg);
+      border-radius: var(--border-radius-md);
+      margin: var(--spacing-xxl) 0;
+    }
+}

@@ -1,0 +1,32 @@
+.container {
+    max-width: var(--max-width-lg);
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+  
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+    
+    p {
+      font-size: var(--font-size-sm);
+    }
+  
+    .bonus, .submission {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-left: 4px solid var(--primary-color);
+  
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+  
