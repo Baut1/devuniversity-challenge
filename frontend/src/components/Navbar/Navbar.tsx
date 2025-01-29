@@ -22,7 +22,9 @@ export default function Navbar() {
         {!user ? (
           <Link href="/api/auth/login">Login</Link>
         ) : (
+          /* eslint-disable @next/next/no-html-link-for-pages */
           <a href="/api/auth/logout">Logout</a>
+          /* eslint-enable @next/next/no-html-link-for-pages */
         )}
       </div>
     </nav>
