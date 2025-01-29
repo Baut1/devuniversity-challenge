@@ -15,7 +15,7 @@ export const fetchAccessToken = async (): Promise<string> => {
 };
 
 // function to get all tasks
-export const fetchTasks = async (): Promise<any[]> => {
+export const fetchTasks = async (): Promise<Task[]> => {
   const accessToken = await fetchAccessToken();
   const response = await api.get('/tasks', {
     headers: {
