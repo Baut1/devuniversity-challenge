@@ -1,6 +1,6 @@
 import request from 'supertest';
 import mongoose from 'mongoose';
-import { app, server } from '../src/app';
+import app from '../src/app';
 import Task from '../src/models/Task';
 
 // auth middlware mock
@@ -30,12 +30,6 @@ describe('Task API', () => {
   afterAll(async () => {
     // close the conn with the db after tests ended
     await mongoose.connection.close();
-    server.close(); // Cierra el servidor de Express
-
-    // if (globalThis.__SERVER__) {
-    //   globalThis.__SERVER__.close();
-    //   console.log("Express server closed.");
-    // }
   });
 
   it('should fetch tasks for the authenticated user', async () => {

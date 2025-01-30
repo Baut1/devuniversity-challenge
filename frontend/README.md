@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 DevUniversity Challenge - Full-Stack To Do List App
 
-## Getting Started
+This is a Full-Stack **To-Do App** with authentication, built using **Next.js, React, TypeScript, Node.js, Express, and MongoDB**.
 
-First, run the development server:
+## 🚀 Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### **Frontend**  
+- **Next.js 15 (App Router)**  
+- **React 18 with TypeScript**  
+- **SCSS Modules**  
+- **Auth0 for authentication**  
+- **Vercel (deployment)**  
+
+### **Backend**  
+- **Node.js with Express**  
+- **MongoDB + Mongoose**  
+- **JWT & Auth0 for authentication**  
+- **Swagger for API documentation**  
+- **Jest + Supertest for automated testing**  
+- **Render (deployment)**  
+
+---
+
+## 📌 **How to Run the Project Locally**
+
+### 1️⃣ **Clone the Repository**  
+```sh
+git clone https://github.com/baut1/devuniversity-challenge.git
+cd devuniversity-challenge
 ```
+&nbsp;  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2️⃣ Set Up Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Before running the project, configure the environment variables that i already sent you, modify them if you want to.
+<p>&nbsp;</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3️⃣ Run the Backend
+```sh
+cd backend
+npm install
+npm run dev
+```
+The backend will run on http://localhost:5000.
+<p>&nbsp;</p>
 
-## Learn More
+4️⃣ Run the Frontend
+```sh
+cd ../frontend
+npm install
+npm run dev
+```
+The frontend will run on http://localhost:3000.
+<p>&nbsp;</p>
 
-To learn more about Next.js, take a look at the following resources:
+📌 Production Deployments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✅ **Frontend (Vercel)**: [https://devuniversity-challenge.vercel.app/](https://devuniversity-challenge.vercel.app/)  
+✅ **Backend (Render)**: [https://backend-render-url.onrender.com](https://backend-render-url.onrender.com)
+<p>&nbsp;</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📌 API Documentation
 
-## Deploy on Vercel
+The backend uses Swagger for API documentation. Access it in production here:
+🔗 https://devuniversity-challenge.onrender.com/api-docs/
+<p>&nbsp;</p>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📌 Run Tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Both backend and frontend include automated tests with Jest + Supertest. To run them:
+```sh
+cd backend
+npm test
+```
+And for the frontend:
+```sh
+cd frontend
+npm test
+```
+&nbsp;  
+
+📌 Project Structure
+```sh
+devuniversity-challenge/
+│── backend/       # Node.js + Express server
+│── frontend/      # Next.js application
+│── README.md      # English documentation, you are here
+│── README_ES.md   # Spanish documentation
+```
+&nbsp;  
+
+📌 Authors
+
+Juan Bautista Iglesias - [Github](https://github.com/Baut1)

@@ -36,8 +36,8 @@ connectDB();
   
 // Configure port
 const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server running on port:${PORT}`);
 });
 
-export { app, server };
+export default app;
