@@ -22,7 +22,7 @@ export default function TaskDetailsPage({ params }: { params: Promise<{ todoId: 
         setTask(fetchedTask);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load task');
+        setError('Failed to load task' + err);
         setLoading(false);
       }
     };
@@ -45,7 +45,7 @@ export default function TaskDetailsPage({ params }: { params: Promise<{ todoId: 
       // Actualizar localmente sin depender de la respuesta del backend
       setError('');
     } catch (err) {
-      setError('Failed to update task');
+      setError('Failed to update task' + err);
     } finally {
       setSaving(false);
     }
