@@ -26,8 +26,6 @@ export const errorHandler = (
       ? err.message
       : 'An unexpected error occurred';
 
-  console.error('Error:', err);
-
   res.status(statusCode).json({
     status: 'error',
     message,

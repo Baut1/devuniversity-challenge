@@ -6,7 +6,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { accessToken } = await getAccessToken(req, res);
     res.status(200).json({ accessToken });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to get access token' });
+    res.status(500).json({ error: 'Failed to get access token' + error });
   }
 }

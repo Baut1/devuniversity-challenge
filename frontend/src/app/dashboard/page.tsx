@@ -46,10 +46,8 @@ export default function DashboardPage() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <Suspense fallback={<div>Loading Task Form...</div>}>
+        <Suspense fallback={<div>Loading Tasks...</div>}>
           <AddTask onAdd={handleAddTask} /> {/* Include AddTask component */}
-        </Suspense>
-        <Suspense fallback={<div>Loading Task List...</div>}>
           <TaskList
             tasks={tasks}
             onDelete={handleDeleteTask}
