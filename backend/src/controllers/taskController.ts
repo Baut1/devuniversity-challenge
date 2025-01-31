@@ -77,9 +77,7 @@ export const deleteTask = async (req: Request, res: Response): Promise<void> => 
 
   try {
     // try to find task
-    const task = await Task.findOne({ _id: id, userId });
-    console.log(task);
-    
+    const task = await Task.findOne({ _id: id, userId });    
 
     if (!task) {
       // if task doesnt exist or doesnt belong to user

@@ -23,7 +23,6 @@ const AddTask: React.FC<AddTaskProps> = ({ onAdd }) => {
         setTitle('');
         setError('');
       } catch (error) {
-        console.error('Error adding task:', error);
         setError('An error occurred while adding the task');
       }
     };
