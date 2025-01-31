@@ -6,54 +6,96 @@
 
   .form {
     margin-top: var(--spacing-lg);
-    background-color: var(--list-item-background-color);
+    background-color: var(--card-background-color);
     width: var(--max-width-md);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-lg) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-xl);
 
-    .title-input {
-      margin: var(--spacing-md) 0;
-      width: 100%;
-      background-color: var(--card-background-color);
-      color: var(--text-color);
-      padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: var(--border-radius-md);
-      border: var(--border-width-thin) solid var(--text-color);
-      width: 100%;
-    
-      :focus {
-        border-color: var(--primary-color);
-        outline: none;
+    // "Edit Task"
+    .title-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: var(--spacing-lg);
+      
+      h1 {
+        justify-self: center;
       }
     }
 
-    .status-input {
-      margin-left: var(--spacing-sm);
-      width: var(--spacing-lg);
-      height: var(--spacing-lg);
+    // inputs
+    .input-container {
+      display: flex;
+      align-items: center;
+      background-color: var(--list-item-background-color);
+      border-radius: var(--border-radius-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+
+      // task title
+      .title-input {
+        margin: var(--spacing-md) 0;
+        width: 100%;
+        background-color: var(--card-background-color);
+        color: var(--text-color);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        border: var(--border-width-thin) solid var(--text-color);
+
+        :focus {
+          border-color: var(--primary-color);
+          outline: none;
+        }
+      }
+
+      // task completed or pending
+      .status-input {
+        margin: 0 var(--spacing-md) 0 var(--spacing-sm);
+        width: var(--spacing-lg);
+        height: var(--spacing-lg);
+      }
     }
     
+    // save button
     .button-container {
       display: flex;
       justify-content: flex-end;
+
+      button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        background-color: var(--primary-color);
+        color: var(--button-text-color);
+        border: none;
+        border-radius: var(--border-radius-md);
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: var(--primary-hover-color);
+        }
+    
+        &:focus {
+          outline: none;
+        }
+      }
     }
 
-    button {
-      padding: var(--spacing-sm) var(--spacing-md);
-      background-color: var(--primary-color);
-      color: var(--button-text-color);
-      border: none;
-      border-radius: var(--border-radius-md);
-      cursor: pointer;
-      transition: all 0.3s;
+    // media queries
+    @media (max-width: 1200px) {
+      max-width: var(--max-width-md);
+    }
 
-      &:hover {
-        background-color: var(--primary-hover-color);
-      }
-  
-      &:focus {
-        outline: none;
-      }
+    @media (max-width: 1024px) {
+      max-width: var(--max-width-sm);
+    }
+
+    @media (max-width: 768px) {
+      max-width: var(--max-width-xs);
+      font-size: var(--font-size-xs);
+    }
+
+    @media (max-width: 480px) {
+      max-width: var(--max-width-xxs);
+      font-size: var(--font-size-xxs);
     }
   }
 }

@@ -18,7 +18,7 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onDelete, onUpdate}) => {
         <div className={styles["task-list"]}>
             <ul>
                 {tasks.slice().reverse().map((task) => (
-                <li key={task._id} className={styles["task-item"]}>
+                <li key={task._id} className={`${styles["task-item"]} ${task.completed ? styles["completed"] : ""}`}>
                   <div>
                     <input
                         type="checkbox"
