@@ -58,10 +58,22 @@ export default function TaskDetailsPage({ params }: { params: Promise<{ todoId: 
 
   return (
     <div className={styles["task-details-container"]}>
-      <h1>Edit Task</h1>
       <form onSubmit={handleSave} className={styles.form}>
-        <div>
-          <label htmlFor="title">Title</label>
+        <span className={styles["title-container"]}>
+          <h1>Edit Task</h1>
+        </span>
+        <div className={styles["input-container"]}>
+          <input
+            className={styles["status-input"]}
+            id="completed"
+            type="checkbox"
+            checked={task?.completed || false}
+            onChange={(e) => {
+              if (task) {
+                setTask({ ...task, completed: e.target.checked }); // Actualizar localmente el estado completado
+              }
+            }}
+          />
           <input className={styles["title-input"]}
             id="title"
             type="text"
@@ -72,19 +84,6 @@ export default function TaskDetailsPage({ params }: { params: Promise<{ todoId: 
               }
             }}
             required
-          />
-        </div>
-        <div>
-          <label htmlFor="completed">Completed</label>
-          <input className={styles["status-input"]}
-            id="completed"
-            type="checkbox"
-            checked={task?.completed || false}
-            onChange={(e) => {
-              if (task) {
-                setTask({ ...task, completed: e.target.checked }); // Actualizar localmente el estado completado
-              }
-            }}
           />
         </div>
         <div className={styles["button-container"]}>

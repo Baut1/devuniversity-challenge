@@ -4,10 +4,13 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <h1>DevUniversity Challenge Objective</h1>
-      <p>
-        The objective of this challenge is to evaluate your skills in developing a complete web application using <strong>React.js</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>, as well as your ability to apply best practices in terms of optimization, styling, and code organization.
-      </p>
+      <div className={styles.title}>
+        <h1>DevUniversity Challenge Objective</h1>
+        <p>
+          The objective of this challenge is to evaluate your skills in developing a complete web application using <strong>React.js</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>, as well as your ability to apply best practices in terms of optimization, styling, and code organization.
+        </p>
+      </div>
+      
       <h2>Required Functionality</h2>
       <ul>
         <li>List tasks: Users should be able to see a list of their tasks.</li>
@@ -45,6 +48,7 @@ export default function Home() {
         alt="task-list-example"
         width={649}
         height={396}
+        className={styles["task-list-example-img"]}
         >
       </Image>
       
